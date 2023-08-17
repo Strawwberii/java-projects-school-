@@ -1,5 +1,10 @@
 
-
+/* Rupok Ghosh Adin T00716058
+ * COMP 1231 Assignment 2
+ * This application keeps records of different products of different categories
+ * and requires password access for any kind of change to the products. It
+ * is also capable of getting the product with the lowest price. 
+ */
 interface Category{
     
     int Unclassified = 0;
@@ -23,7 +28,7 @@ interface PasswordLockable{
     boolean isLocked();
 }
 
-class Product implements Category, PasswordLockable{
+class Product implements Category, PasswordLockable, Comparable<Product>{
 
     // attributes
 
@@ -68,7 +73,7 @@ class Product implements Category, PasswordLockable{
             this.code = code;
         }
         else{
-            System.out.println("Locked!");
+            System.out.println("The product is locked!");
         }
     }
     
@@ -77,7 +82,7 @@ class Product implements Category, PasswordLockable{
             this.description = description;
         }
         else {
-            System.out.println("Locked!");
+            System.out.println("The product is locked!");
         }
     }
     
@@ -86,7 +91,7 @@ class Product implements Category, PasswordLockable{
             this.price = price;
         }
         else {
-            System.out.println("Locked!");
+            System.out.println("The product is locked!");
         }
     }
 
@@ -101,6 +106,7 @@ class Product implements Category, PasswordLockable{
     @Override
     public void setPassword(String password) {
         this.password = password;
+        System.out.println("Password has been set.");
     }
 
     // method to convert the category
@@ -128,6 +134,7 @@ class Product implements Category, PasswordLockable{
         if(password.equals(this.password)){
             productIsLocked = true;
         }
+        System.out.println("The product record is now locked.");
     }
     
     @Override
@@ -135,6 +142,8 @@ class Product implements Category, PasswordLockable{
         if(password.equals(this.password)){
             productIsLocked  = false;
         }
+        System.out.println("The product record is now unlocked!");
+
     }
 
     @Override
@@ -144,8 +153,17 @@ class Product implements Category, PasswordLockable{
     
     // compareTo method
 
-    public int compareTo(Product otherProduct){
-        return Double.compare(this.price, otherProduct.price);
+    public int compareTo(Product Product2){
+        return Double.compare(this.price, Product2.price);
+    }
+
+    // toString method
+
+    public String toString(){
+
+        return "Product Code: " + code + "\tDescription: " 
+                + description + "\tPrice: " + price + "\tCategory: "
+                + category;
     }
 
 }
