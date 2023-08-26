@@ -1,7 +1,12 @@
-
 import java.util.*;
 import java.io.*;
-
+/* CustomerRating.java
+ * Rupok Ghosh Adin T00716058
+ * COMP 1231 Assignment 3
+ * This application reads customer information from the file, 
+ * stores and displays it, lets user add more users to a certain limit, 
+ * and display it back in the terminal. 
+ */
 
 class CustomerRating{
 
@@ -25,7 +30,7 @@ class CustomerRating{
             while(scanner.hasNextLine()){
             
                 String info = scanner.nextLine();
-                String[] splitInfo = info.split("\\s+");    // split at whitespace(split at tab not working)
+                String[] splitInfo = info.split("\\s+");    // split at whitespace
                 
                 int age = Integer.parseInt(splitInfo[0].trim());
                 double rating = Double.parseDouble(splitInfo[1].trim());
@@ -80,14 +85,14 @@ class CustomerRating{
             readRecords("rating.txt");
         }
         catch(IOException e){
-            System.out.println("Can't read file!");
+            System.out.println("Can't read file!" +"\n" + e);
         }
 
         //displays existing records
         displayRecord();
 
         // ask user to enter new records (plus letting them quit the app if they want)
-        while(noOfRecords<5){
+        while(noOfRecords<=5){
             System.out.println("Enter age[integer], followed by ONE [tab] key, then rating[decimal number] (or type ! to exit)");
             String input = scan.nextLine();
             if(input.equals("!")){
@@ -107,7 +112,7 @@ class CustomerRating{
                 addRecord(age, rating);
             }
             catch(NumberFormatException e){
-                System.out.println("Invalid number format." + e);
+                System.out.println("Invalid number format.");
             }
             catch(ArrayIndexOutOfBoundsException e){
                 System.out.println(" Array out of bounds.You have reached the max amount of records that can be stored.");

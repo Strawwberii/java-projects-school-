@@ -1,3 +1,7 @@
+/* Customer.java
+ * Rupok Ghosh Adin T00716058
+ * Storage for the customer attributes. 
+ */
 class Customer{
 
     //attributes
