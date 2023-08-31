@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Group<T>{
 
@@ -11,6 +11,10 @@ public class Group<T>{
     }
 
     // methods
+
+    public ArrayList<T> getList(){
+        return aList;
+    }
     public void addToGroup(T member){
         aList.add(member);
     }
@@ -23,7 +27,7 @@ public class Group<T>{
         aList.remove(member);
     }
 
-    public int getNUmberOfMembers(){
+    public int getNumberOfMembers(){
         return aList.size();
     }
 
@@ -38,5 +42,4 @@ public class Group<T>{
         }
         return result;
     }
-
 }
