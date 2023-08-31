@@ -20,7 +20,7 @@ public class Applicant implements Comparable<Applicant>{
         return this.name;
     }
 
-    public int typingSpeed(){
+    public int getTypingSpeed(){
         return this.typingSpeed;
     }
 
@@ -40,6 +40,6 @@ public class Applicant implements Comparable<Applicant>{
     } 
     @Override
     public String toString(){
-        return "Name=" + name + "; " + "Typing Speed(words/min)= " + typingSpeed;
+        return "Name=" + name + "; " + "Typing Speed(words/min)= " + typingSpeed;where
     }
 }
