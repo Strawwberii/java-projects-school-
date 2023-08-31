@@ -1,3 +1,8 @@
+/* Applicant.java
+ * Rupok Ghosh Adin T00716058
+ * COMP 1231 Assignment 4
+ * This class serves as the storage for the applicants. 
+ */
 
 public class Applicant implements Comparable<Applicant>{
 
@@ -40,6 +45,6 @@ public class Applicant implements Comparable<Applicant>{
     } 
     @Override
     public String toString(){
-        return "Name=" + name + "; " + "Typing Speed(words/min)= " + typingSpeed;where
+        return "Name=" + name + "; " + "Typing Speed(words/min)= " + typingSpeed;
     }
 }

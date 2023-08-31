@@ -1,5 +1,10 @@
 import java.util.*;
 
+/* Group.java
+ * Rupok Ghosh Adin T00716058
+ * COMP 1231 Assignment 4
+ * Group class of the application, where all the major methods are created.
+ */
 public class Group<T>{
 
     //attributes
@@ -15,6 +20,7 @@ public class Group<T>{
     public ArrayList<T> getList(){
         return aList;
     }
+
     public void addToGroup(T member){
         aList.add(member);
     }
