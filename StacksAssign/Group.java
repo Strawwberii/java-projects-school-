@@ -32,7 +32,11 @@ public class Group<T>{
     }
 
     public String toString(){
-
-
+        String result = "";
+        for(int i=0; i<aList.size(); i++){
+            result = result + aList.get(i).toString() + "\n";
+        }
+        return result;
     }
+
 }

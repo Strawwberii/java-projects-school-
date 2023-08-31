@@ -1,5 +1,5 @@
 
-public class Applicant implements Comparable{
+public class Applicant implements Comparable<Applicant>{
 
     // attributes
 
@@ -33,9 +33,13 @@ public class Applicant implements Comparable{
     }
     
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Applicant other) {
 
-        return typingSpeed;
+        return Integer.compare(other.typingSpeed, this.typingSpeed);
        
     } 
+    @Override
+    public String toString(){
+        return "Name=" + name + "; " + "Typing Speed(words/min)= " + typingSpeed;
+    }
 }
