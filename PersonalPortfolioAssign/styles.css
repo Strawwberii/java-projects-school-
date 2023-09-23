@@ -89,6 +89,7 @@ p{
 }
 
 /* Hobbies Page */
+
 #hobbyMain{
     display: flex;
     flex-direction: column;
@@ -115,4 +116,14 @@ p{
 }
 #hobbyMain > h2 {
     text-align: center;
+}
+
+/* Experience Page */
+#experienceMain, .wrapper{
+    background-image: url(assets/paul-hanaoka-eWw2BKvKX_0-unsplash.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+    padding: 10px 40px 20px 10px;
 }
