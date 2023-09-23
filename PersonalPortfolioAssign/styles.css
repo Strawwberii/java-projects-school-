@@ -85,7 +85,7 @@ a{
 }
 p{
     font-size: large;
-    line-height: 2;
+    line-height: 2.5;
 }
 
 /* Hobbies Page */
@@ -93,7 +93,7 @@ p{
     display: flex;
     flex-direction: column;
     background-color: #D0E7D2;
-    padding: 15px;
+    padding: 20px 30px 15px 30px;
 }
 .hobby {
     display: flex;
@@ -106,6 +106,13 @@ p{
     height: auto;
 }
 
-.hobby:nth-child(2) {
+.cooking {
     flex-direction: row-reverse;
+}
+
+.hobby > p {
+    line-height: 4;
+}
+#hobbyMain > h2 {
+    text-align: center;
 }
