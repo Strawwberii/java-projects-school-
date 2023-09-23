@@ -1,19 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+
+/* General CSS */
+
 body{
-margin: 0px;
-padding: 0px;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+flex: 1 1 auto;
+font-family: 'Roboto Mono', monospace;
+
 }
 #header{
-    background-color: beige;
-    display: block;
+    background-color: #618264;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 100px;
-   
+    padding: 0px 40px 0px 40px;
+}
+#name{
+    font-family: 'Cookie', cursive;
+    font-size: 40px;
+    color: #D0E7D2;
+}
+.socials{
+    display: flex;
+    gap: 15px;
+    margin-right: 50px;
 }
 #links{
-    background-color: aqua;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #618264;
+    gap: 40px;
     height: 50px;
-    
+    font-family: 'Major Mono Display', monospace;
 }
 #main{
-    
+    display: flex;
+    flex-direction: column;
+    background-color: #D0E7D2;
+}
+.personalDetails{
+    padding: 60px 10px 0px 40px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+img{
+    height: 40vh;
+    border-radius: 4%;
+}
+.info{
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    height: 40vh;
+}
+h3{
+    padding: 30px;
+}
+.aboutMe{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 40vh;
+}
+a{
+    text-decoration: none;
+    color: #D0E7D2;
+}
+p{
+    font-size: large;
+    line-height: 2;
+}
+
+/* Hobbies Page */
+#hobbyMain{
+    display: flex;
+    flex-direction: column;
+    background-color: #D0E7D2;
+    padding: 15px;
+}
+.hobby {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.hobby img {
+    max-width: 300px;
+    height: auto;
+}
+
+.hobby:nth-child(2) {
+    flex-direction: row-reverse;
 }
