@@ -1,5 +1,5 @@
-# java-projects-school-
-Every program I have written in classes for lab/assignments, etc. 
+# school-projects-school-
+Every program I have written in my college assignments and lab. 
 
 Languages used:
 1. Java
