@@ -1,4 +1,4 @@
-
+/* imports */
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Major+Mono+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
@@ -16,6 +16,9 @@ flex: 1 1 auto;
 font-family: 'Roboto Mono', monospace;
 
 }
+
+/* header */
+
 #header{
     background-color: #618264;
     display: flex;
@@ -43,21 +46,27 @@ font-family: 'Roboto Mono', monospace;
     height: 50px;
     font-family: 'Major Mono Display', monospace;
 }
+
+/* Main body */
+
 #main{
     display: flex;
     flex-direction: column;
     background-color: #D0E7D2;
 }
+
 .personalDetails{
     padding: 60px 10px 0px 40px;
     display: flex;
     justify-content: flex-start;
     gap: 15px;
 }
+
 img{
     height: 40vh;
     border-radius: 4%;
 }
+
 .info{
     display: flex;
     font-weight: bold;
@@ -67,9 +76,11 @@ img{
     padding: 10px;
     height: 40vh;
 }
+
 h3{
     padding: 30px;
 }
+
 .aboutMe{
     display: flex;
     flex-direction: column;
@@ -79,10 +90,12 @@ h3{
     padding-right: 40px;
     height: 40vh;
 }
+
 a{
     text-decoration: none;
     color: #D0E7D2;
 }
+
 p{
     font-size: large;
     line-height: 2.5;
@@ -96,6 +109,7 @@ p{
     background-color: #D0E7D2;
     padding: 20px 30px 15px 30px;
 }
+
 .hobby {
     display: flex;
     align-items: center;
@@ -119,6 +133,7 @@ p{
 }
 
 /* Experience Page */
+
 #experienceMain{
     background-color:#D0E7D2;
     display: flex;
@@ -131,4 +146,49 @@ p{
     justify-content: center;
     flex: 1 1 auto;
     padding: 10px 40px 20px 40px; 
+}
+
+/* Schedule Page */
+
+.table{
+    padding-bottom: 30px;
+    background-color: #D0E7D2;
+    
+}
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+td{
+    background-color: #E4F1FF;
+}
+.time{
+    background-color: #A1CCD1;
+}
+.comp{
+    background-color: #B0D9B1;
+}
+.mist{
+    background-color: #FF6969;
+}
+.gym{
+    background-color: #D0BFFF;
+}
+.orgb{
+    background-color: #F78CA2;
+}
+a{
+    text-decoration: none;
+    color: #D0E7D2;
 }
