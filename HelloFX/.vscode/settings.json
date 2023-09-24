@@ -1,0 +1,15 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.base.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.controls.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.fxml.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.graphics.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.media.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.swing.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx.web.jar",
+        "/home/rupok/Downloads/openjfx-17.0.8_linux-x64_bin-sdk/javafx-sdk-17.0.8/lib/javafx-swt.jar"
+    ]
+}
