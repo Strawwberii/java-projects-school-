@@ -1,4 +1,4 @@
-package hellofx;
+    package hellofx;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -9,7 +9,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -21,8 +20,6 @@ public class App extends Application {
     private Circle circle;
     private Slider sizeSlider;
     private Text warningText;
-    private ToggleGroup toggleGroup;
-    private AudioClip warningSound;
 
     public static void main(String[] args) {
         launch(args);
@@ -30,73 +27,85 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Circle Color Changer");
 
-        BorderPane root = new BorderPane();
-        Scene scene = new Scene(root, 400, 300);
+        // main layout
 
-        Text instructionText = new Text("Change the circle color using the radio buttons. " +
-                "Change the scale of the circle between 0-100% using the slider");
-        instructionText.setStyle("-fx-font-weight: bold;");
+        BorderPane borderPane = new BorderPane();
+        primaryStage.setTitle("Changing Circle");
+        
+        // header
 
-        toggleGroup = new ToggleGroup();
-        RadioButton redRadio = new RadioButton("Red");
-        redRadio.setToggleGroup(toggleGroup);
-        RadioButton greenRadio = new RadioButton("Green");
-        greenRadio.setToggleGroup(toggleGroup);
-        RadioButton blueRadio = new RadioButton("Blue");
-        blueRadio.setToggleGroup(toggleGroup);
+        VBox topBox = new VBox();
+        topBox.setAlignment(Pos.CENTER);
+        topBox.setSpacing(30);
+        Text header = new Text();
+        header.setText("Change the circle color using the radio buttons and the scale of the circle between 0-100% using the slider.");
+        topBox.getChildren().add(header);
+    
+        // Body
 
-        VBox radioBox = new VBox(10, redRadio, greenRadio, blueRadio);
-        radioBox.setAlignment(Pos.CENTER_LEFT);
+        // Add radio buttons on the left
 
-        circle = new Circle(100, Color.ORANGE);
-        circle.setStroke(Color.BLACK);
-        circle.setStrokeWidth(2);
+        VBox buttonBox = new VBox();
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+
+        RadioButton radioOrange = new RadioButton("Orange");
+        RadioButton radioYellow = new RadioButton("Yellow");
+        RadioButton radioBlue = new RadioButton("Blue");
+
+        radioOrange.setToggleGroup(toggleGroup);
+        radioYellow.setToggleGroup(toggleGroup);
+        radioBlue.setToggleGroup(toggleGroup);
+        
+        buttonBox.setSpacing(40);
+        buttonBox.setAlignment(Pos.CENTER);
+
+        // Add event handlers to radio buttons to change circle color
+        radioOrange.setOnAction(event -> circle.setFill(Color.ORANGE));
+        radioYellow.setOnAction(event -> circle.setFill(Color.YELLOW));
+        radioBlue.setOnAction(event -> circle.setFill(Color.BLUE));
+
+        buttonBox.getChildren().addAll(radioOrange,radioYellow,radioBlue);
+
+        // Add circle on the center
+
+        VBox circleContainer = new VBox();
+        circle = new Circle(0,0,25, Color.ORANGE);
+        circleContainer.setAlignment(Pos.CENTER);
+        circleContainer.getChildren().addAll(circle);
+
+        // Add slider and Warning Text on the bottom
+
+        VBox bottomBox = new VBox();
+        bottomBox.setAlignment(Pos.CENTER);
 
         sizeSlider = new Slider(0, 100, 25);
-        sizeSlider.setShowTickLabels(true);
-        sizeSlider.setShowTickMarks(true);
-        sizeSlider.setMajorTickUnit(25);
-        sizeSlider.setBlockIncrement(5);
 
-        sizeSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                double newSize = newValue.doubleValue() / 100.0;
-                circle.setRadius(50 * newSize);
-            }
+        // Add a change listener to the slider to update the circle size
+        sizeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            double newSize = newValue.doubleValue();
+            circle.setRadius(newSize);
         });
 
-        HBox controlsBox = new HBox(20, radioBox, circle, sizeSlider);
-        controlsBox.setAlignment(Pos.CENTER);
-
+        // Warning text
         warningText = new Text("Select the radio buttons or the slider only. You'll hear a warning sound if the mouse is clicked elsewhere!");
-        warningText.setStyle("-fx-fill: red;");
 
-        root.setTop(instructionText);
-        root.setCenter(controlsBox);
-        root.setBottom(warningText);
+        bottomBox.getChildren().addAll(sizeSlider, warningText);
+        
+        // Sound effect if tap anywhere else
+        
 
+        // Add everything to the main layout
+        borderPane.setTop(topBox);
+        borderPane.setLeft(buttonBox);
+        borderPane.setCenter(circleContainer);
+        borderPane.setBottom(bottomBox);
+
+        Scene scene = new Scene(borderPane, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        // // Load the warning sound
-        // warningSound = new AudioClip(getClass().getResource("warning.wav").toExternalForm());
-
-        // scene.setOnMouseClicked(event -> {
-        //     if (!isRadioSelected() && !isSliderSelected()) {
-        //         // Play the warning sound when clicking elsewhere
-        //         warningSound.play();
-        //     }
-        // });
     }
-
-    private boolean isRadioSelected() {
-        return toggleGroup.getSelectedToggle() != null;
-    }
-
-    private boolean isSliderSelected() {
-        return sizeSlider.isFocused();
-    }
+        
 }
