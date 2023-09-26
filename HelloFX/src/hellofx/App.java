@@ -1,8 +1,14 @@
-    package hellofx;
+/*HelloFx - application that contains a circle whose size can be controlled by the 
+ * slider and the color can be changed using radio buttons. 
+ * 
+ * COMP 1231
+ * Assignment 5
+ * Rupok Ghosh Adin (T00716058)
+ */
+
+package hellofx;
 
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
@@ -14,7 +20,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.media.AudioClip;
 
 public class App extends Application {
     private Circle circle;
@@ -40,9 +45,8 @@ public class App extends Application {
         topBox.setSpacing(30);
         Text header = new Text();
         header.setText("Change the circle color using the radio buttons and the scale of the circle between 0-100% using the slider.");
+        header.setStyle("-fx-font-weight: bold;");
         topBox.getChildren().add(header);
-    
-        // Body
 
         // Add radio buttons on the left
 
@@ -62,6 +66,7 @@ public class App extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Add event handlers to radio buttons to change circle color
+
         radioOrange.setOnAction(event -> circle.setFill(Color.ORANGE));
         radioYellow.setOnAction(event -> circle.setFill(Color.YELLOW));
         radioBlue.setOnAction(event -> circle.setFill(Color.BLUE));
@@ -83,24 +88,33 @@ public class App extends Application {
         sizeSlider = new Slider(0, 100, 25);
 
         // Add a change listener to the slider to update the circle size
+
         sizeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             double newSize = newValue.doubleValue();
             circle.setRadius(newSize);
         });
 
         // Warning text
-        warningText = new Text("Select the radio buttons or the slider only. You'll hear a warning sound if the mouse is clicked elsewhere!");
 
+        warningText = new Text("Select the radio buttons or the slider only. You'll hear a warning sound if the mouse is clicked elsewhere!");
+        warningText.setFill(Color.RED);
         bottomBox.getChildren().addAll(sizeSlider, warningText);
         
-        // Sound effect if tap anywhere else
-        
+        // Sound effect if tap anywhere else (couldn't find proper syntax for it)
+        /*Idea: use setOnMouseClicked() on borderPane to check 
+         * if the mouseclick is on any of the radiobuttons/slider or outside. 
+         * if the mouseclick is on radiobuttons and slider then don't do anything
+         * or else play the sound. 
+        */
 
         // Add everything to the main layout
+
         borderPane.setTop(topBox);
         borderPane.setLeft(buttonBox);
         borderPane.setCenter(circleContainer);
         borderPane.setBottom(bottomBox);
+
+        // Set scene
 
         Scene scene = new Scene(borderPane, 600, 400);
         primaryStage.setScene(scene);
